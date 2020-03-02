@@ -10,11 +10,7 @@ class Device {
 
     public function registerDevice($token, $payloadModel)
     {
-        $client = new SnsClient([
-            'profile'   => 'default',
-            'region'    => 'ap-southeast-1',
-            'version'   => '2010-03-31'
-        ]);
+        $client = App::make('aws')->createClient('sns');
 
         $result = $client->createPlatformEndpoint([
             'CustomUserData' => json_encode($payloadModel),
