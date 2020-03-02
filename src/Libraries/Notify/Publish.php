@@ -24,17 +24,17 @@ class Publish {
         $client = App::make('aws')->createClient('sns');
 
         $payload = [
-            'Message' => 'Hello World', // REQUIRED
-            'MessageAttributes' => [
-                'id' => [
-                    'DataType' => 'Number', // REQUIRED
-                    'StringValue' => '1',
-                ],
-                'name' => [
-                    'DataType' => 'String', // REQUIRED
-                    'StringValue' => 'Jeremy Layson',
-                ],
-            ],
+            'Message' => '"{\n  \"GCM\": \"{ \\\"data\\\": { \\\"message\\\": \\\"Sample message for Android endpoints\\\" } }\"\n}"', // REQUIRED
+            // 'MessageAttributes' => [
+            //     'id' => [
+            //         'DataType' => 'Number', // REQUIRED
+            //         'StringValue' => '1',
+            //     ],
+            //     'name' => [
+            //         'DataType' => 'String', // REQUIRED
+            //         'StringValue' => 'Jeremy Layson',
+            //     ],
+            // ],
             'MessageStructure' => 'json',
         ];
 
