@@ -10,7 +10,11 @@ class Device {
 
     public function registerDevice($token, $payloadModel)
     {
-        $client = new SnsClient();
+        $client = new SnsClient([
+            'profile'   => 'default',
+            'region'    => 'ap-southeast-1',
+            'version'   => '2010-03-31'
+        ]);
 
         $result = $client->createPlatformEndpoint([
             'CustomUserData' => json_encode($payloadModel),
