@@ -26,6 +26,9 @@ class Topic {
         return $result['SubscriptionArn'];
     }
 
+    /**
+     * Tested 2020-03-02
+     */
     public function unsubscribeToTopic($subscriptionArn)
     {
         $client = App::make('aws')->createClient('sns');

@@ -9,18 +9,43 @@ use Illuminate\Support\Facades\App;
 
 class Publish {
 
-    /**
-     * Tested 2020-03-02
-     */
-    public function registerDevice($token, $payloadModel)
+    public function publishToTopic($topicArn)
+    {
+        return $this->publish($topicArn);
+    }
+
+    public function publishToArn($arn)
+    {
+        return $this->publish($arn, 'arn');
+    }
+
+    public function publish($arn, $mode = 'topic')
     {
         $client = App::make('aws')->createClient('sns');
 
-        $result = $client->createPlatformEndpoint([
-            'CustomUserData' => json_encode($payloadModel),
-            'PlatformApplicationArn' => env('AWS_SNS_APPLICATION'),
-            'Token' => $token,
-        ]);
+        $payload = [
+            'Message' => 'Hello World', // REQUIRED
+            'MessageAttributes' => [
+                'id' => [
+                    'DataType' => 'Number', // REQUIRED
+                    'StringValue' => '1',
+                ],
+                'name' => [
+                    'DataType' => 'String', // REQUIRED
+                    'StringValue' => 'Jeremy Layson',
+                ],
+            ],
+            'MessageStructure' => 'json',
+            'TopicArn' => '<string>',
+        ];
+
+        if ($mode === 'topic') {
+            $payload['TopicArn'] = $arn;
+        } else {
+            $payload['TargetArn'] = $arn;
+        }
+
+        $client->publish($payload);
 
         return $result;
     }
