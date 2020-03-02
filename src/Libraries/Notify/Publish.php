@@ -62,7 +62,7 @@ class Publish {
             $payload['TargetArn'] = $arn;
         }
 
-        $client->publish($payload);
+        $result = $client->publish($payload);
 
         return $result;
     }

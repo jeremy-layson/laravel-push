@@ -22,6 +22,17 @@ class Device {
             'Token' => $token,
         ]);
 
+        return $result['EndpointArn'];
+    }
+
+    public function unregisterDevice($arn)
+    {
+        $client = App::make('aws')->createClient('sns');
+
+        $result = $client->deleteEndpoint([
+            'PlatformApplicationArn' => $arn
+        ]);
+
         return $result;
     }
 }
