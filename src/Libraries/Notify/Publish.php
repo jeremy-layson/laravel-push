@@ -36,7 +36,6 @@ class Publish {
                 ],
             ],
             'MessageStructure' => 'json',
-            'TopicArn' => '<string>',
         ];
 
         if ($mode === 'topic') {
