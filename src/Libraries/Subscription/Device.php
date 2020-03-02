@@ -13,7 +13,7 @@ class Device {
         $client = new SnsClient();
 
         $result = $client->createPlatformEndpoint([
-            'CustomUserData' => json_encode($payloadModel);
+            'CustomUserData' => json_encode($payloadModel),
             'PlatformApplicationArn' => env('AWS_SNS_APPLICATION'),
             'Token' => $deviceToken,
         ]);
