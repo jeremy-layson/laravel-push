@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\App;
 
 class Topic {
 
+    /**
+     * Tested 2020-03-02
+     */
     public function subscribeToTopic($deviceArn, $topicArn)
     {
         $client = App::make('aws')->createClient('sns');
@@ -20,9 +23,7 @@ class Topic {
             'ReturnSubscriptionArn' => true,
         ]);
 
-        \Log::info($result);
-
-        return $result;
+        return $result['SubscriptionArn'];
     }
 
     public function unsubscribeToTopic($subscriptionArn)
@@ -33,8 +34,6 @@ class Topic {
             'SubscriptionArn' => $subscriptionArn
         ]);
 
-        \Log::info($result);
-
-        return $result;
+        return $result['@metadata'];
     }
 }
