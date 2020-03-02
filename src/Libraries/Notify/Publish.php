@@ -24,9 +24,11 @@ class Publish {
         $client = App::make('aws')->createClient('sns');
 
         $message = [
-            "GCM" => json_encode([
-                'data'  => [
-                    'message' => 'Sample Message'
+            'GCM' => json_encode((object) [
+                'notification' => (object) [
+                    'body'  => 'Test Message',
+                    'title' => 'Title',
+                    'sound' => 'default'
                 ]
             ])
         ];
