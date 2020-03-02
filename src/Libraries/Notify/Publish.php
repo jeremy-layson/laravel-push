@@ -30,7 +30,14 @@ class Publish {
                     'title' => 'Title',
                     'sound' => 'default'
                 ]
-            ])
+            ]),
+            'default' => json_encode((object) [
+                'notification' => (object) [
+                    'body'  => 'Test Message',
+                    'title' => 'Title',
+                    'sound' => 'default'
+                ]
+            ]),
         ];
 
         $payload = [
