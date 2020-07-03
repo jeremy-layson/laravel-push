@@ -14,7 +14,7 @@ class CreateAwsPushDevicesTable extends Migration
     public function up()
     {
         Schema::create('aws_push_devices', function (Blueprint $table) {
-            $table->uuid('id')->primary()->unique();
+            $table->increments('id');
 
             $table->char('arn', 255);
             $table->char('platform', 255); // ios or android

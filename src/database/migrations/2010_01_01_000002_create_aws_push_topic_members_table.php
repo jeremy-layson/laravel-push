@@ -14,7 +14,7 @@ class CreateAwsPushTopicMembersTable extends Migration
     public function up()
     {
         Schema::create('aws_push_topic_members', function (Blueprint $table) {
-            $table->uuid('id')->primary()->unique();
+            $table->increments('id');
 
             $table->char('name', 255);
             $table->char('description', 255)->nullable();
