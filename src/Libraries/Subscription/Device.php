@@ -12,13 +12,13 @@ class Device {
     /**
      * Tested 2020-03-02
      */
-    public function registerDevice($token, $payloadModel)
+    public function registerDevice($token, $payloadModel, $platformArn)
     {
         $client = App::make('aws')->createClient('sns');
 
         $result = $client->createPlatformEndpoint([
             'CustomUserData' => json_encode($payloadModel),
-            'PlatformApplicationArn' => env('AWS_SNS_APPLICATION'),
+            'PlatformApplicationArn' => $platformArn,
             'Token' => $token,
         ]);
 

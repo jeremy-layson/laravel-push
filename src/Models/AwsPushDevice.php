@@ -22,6 +22,7 @@ class AwsPushDevice extends Model
      */
     protected $fillable = [
         'arn',
+        'device_id',
         'platform',
         'model',
         'os_version',

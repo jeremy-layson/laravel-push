@@ -17,6 +17,7 @@ class CreateAwsPushDevicesTable extends Migration
             $table->increments('id');
 
             $table->char('arn', 255);
+            $table->char('device_id', 255)->nullable();
             $table->char('platform', 255); // ios or android
             $table->char('model', 255)->nullable();
             $table->char('os_version', 255)->nullable();
