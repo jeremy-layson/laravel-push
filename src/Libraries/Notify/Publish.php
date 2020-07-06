@@ -66,4 +66,23 @@ class Publish {
 
         return $result;
     }
+
+    public function newPublish($arn, SNSMessage $message)
+    {
+        $payload = [
+            'Message' => $message->generatePayload()
+            'MessageStructure'  => 'json',
+            'ttl'               => 360, 
+        ];
+
+        if ($mode === 'topic') {
+            $payload['TopicArn'] = $arn;
+        } else {
+            $payload['TargetArn'] = $arn;
+        }
+
+        $result = $client->publish($payload);
+
+        return $result;
+    }
 }

@@ -23,8 +23,8 @@ class SNSMessage {
         'APNS_SANDBOX' => new APNS_SANDBOX(),
         'default' => new Default(),
         'GCM' => new GCM(),
-        'http' => new Http(),
-        'https' => new Https(),
+        // 'http' => new Http(),
+        // 'https' => new Https(),
     ];
 
     public function __construct(Array $data, $abortIfInvalid = FALSE)
