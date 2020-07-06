@@ -2,7 +2,7 @@
 
 namespace App\Observers;
 
-use App\Models\AbstractModel as Model;
+use Illuminate\Database\Eloquent\Model;
 use App\Models\DataHistory;
 use Illuminate\Support\Facades\Auth;
 use App\Models\AwsPushTopic;
