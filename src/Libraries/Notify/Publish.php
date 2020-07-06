@@ -11,30 +11,30 @@ class Publish {
 
     public function publishToTopic($topicArn)
     {
-        return $this->publish($topicArn);
+        return $this->publish($topicArn, 'topic', $title, $content);
     }
 
     public function publishToArn($arn)
     {
-        return $this->publish($arn, 'arn');
+        return $this->publish($arn, 'arn', $title, $content);
     }
 
-    public function publish($arn, $mode = 'topic')
+    public function publish($arn, $mode = 'topic', $title, $content)
     {
         $client = App::make('aws')->createClient('sns');
 
         $message = [
             'GCM' => json_encode((object) [
                 'notification' => (object) [
-                    'body'  => 'Test Message',
-                    'title' => 'Title',
+                    'body'  => $content,
+                    'title' => $title,
                     'sound' => 'default'
                 ]
             ]),
             'default' => json_encode((object) [
                 'notification' => (object) [
-                    'body'  => 'Test Message',
-                    'title' => 'Title',
+                    'body'  => $content,
+                    'title' => $title,
                     'sound' => 'default'
                 ]
             ]),
