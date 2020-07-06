@@ -12,6 +12,7 @@ class PushNotificationServiceProvider extends ServiceProvider {
             __DIR__ . '/config/laravel-push.php' => config_path('laravel-push.php'),
             __DIR__ . '/database/migrations' => base_path('database/migrations'),
             __DIR__ . '/Models' => base_path('app/Models'),
+            __DIR__ . '/Observers' => base_path('app/Observers'),
         ]);
     }
 
