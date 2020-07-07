@@ -105,7 +105,7 @@ class PushObserver
             // loop through all their devices and subscribe them to the topic
             $subscriber = new TopicSubscription();
             foreach ($model->AwsDevices as $device) {
-                $arn = $subscribeToTopic->subscribeToTopic($device->arn, $topic->arn);
+                $arn = $subscriber->subscribeToTopic($device->arn, $topic->arn);
                 $topic->members()->create([
                     'arn'               => $arn,
                     'name'              => '',
@@ -127,7 +127,7 @@ class PushObserver
             // loop through all their devices and subscribe them to the topic
             $subscriber = new TopicSubscription();
             foreach ($model->AwsDevices as $device) {
-                $subscribeToTopic->unsubscribeToTopic($device->arn, $topic->arn);
+                $subscriber->unsubscribeToTopic($device->arn, $topic->arn);
 
             }
 
