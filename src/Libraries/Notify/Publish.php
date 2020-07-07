@@ -70,7 +70,7 @@ class Publish {
     public function newPublish($arn, SNSMessage $message)
     {
         $payload = [
-            'Message' => $message->generatePayload()
+            'Message' => $message->generatePayload(),
             'MessageStructure'  => 'json',
             'ttl'               => 360, 
         ];
