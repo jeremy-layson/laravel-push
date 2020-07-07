@@ -18,17 +18,18 @@ class SNSMessage {
 
     protected $data;
 
-    protected $payloadList = [
-        'APNS' => new APNS(),
-        'APNS_SANDBOX' => new APNS_SANDBOX(),
-        'default' => new DefaultMessage(),
-        'GCM' => new GCM(),
-        // 'http' => new Http(),
-        // 'https' => new Https(),
-    ];
+    protected $payloadList
 
     public function __construct(Array $data, $abortIfInvalid = FALSE)
     {
+        $this->payloadList = [
+            'APNS' => new APNS(),
+            'APNS_SANDBOX' => new APNS_SANDBOX(),
+            'default' => new DefaultMessage(),
+            'GCM' => new GCM(),
+            // 'http' => new Http(),
+            // 'https' => new Https(),
+        ];
         $this->data = $data;
         $this->verifyData($abortIfInvalid);
 
