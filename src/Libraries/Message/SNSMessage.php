@@ -27,8 +27,6 @@ class SNSMessage {
             'APNS_SANDBOX' => new APNS_SANDBOX(),
             'default' => new DefaultMessage(),
             'GCM' => new GCM(),
-            // 'http' => new Http(),
-            // 'https' => new Https(),
         ];
         $this->data = $data;
         $this->verifyData($abortIfInvalid);
