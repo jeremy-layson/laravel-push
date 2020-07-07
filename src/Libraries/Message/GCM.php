@@ -1,7 +1,7 @@
 <?php
 namespace JeremyLayson\Push\Libraries\Message;
 
-use JeremyLayson\Push\Libraries\SNSMessageTemplate;
+use JeremyLayson\Push\Libraries\Message\SNSMessageTemplate;
 
 /**
  * Template for message object for AWS Push Notification

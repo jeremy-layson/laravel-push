@@ -42,7 +42,7 @@ class SNSMessage {
      */
     protected function verifyData($onInvalidAbort = FALSE)
     {
-        foreach ($payloadList as $key => $payload) {
+        foreach ($this->payloadList as $key => $payload) {
             $result = $payload->isValidMessage($this->data);
 
             if ($result === FALSE ) {
@@ -60,7 +60,7 @@ class SNSMessage {
     {
         $data = [];
 
-        foreach ($payloadList as $key => $payload) {
+        foreach ($this->payloadList as $key => $payload) {
             $data[$key] = $payload->generateMessage($this->data);
         }
 
