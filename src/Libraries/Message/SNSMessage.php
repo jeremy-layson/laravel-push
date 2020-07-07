@@ -4,7 +4,7 @@ namespace JeremyLayson\Push\Libraries\Message;
 
 use JeremyLayson\Push\Libraries\Message\APNS;
 use JeremyLayson\Push\Libraries\Message\APNS_SANDBOX;
-use JeremyLayson\Push\Libraries\Message\Default;
+use JeremyLayson\Push\Libraries\Message\DefaultMessage;
 use JeremyLayson\Push\Libraries\Message\GCM;
 use JeremyLayson\Push\Libraries\Message\Http;
 use JeremyLayson\Push\Libraries\Message\Https;
@@ -21,7 +21,7 @@ class SNSMessage {
     protected $payloadList = [
         'APNS' => new APNS(),
         'APNS_SANDBOX' => new APNS_SANDBOX(),
-        'default' => new Default(),
+        'default' => new DefaultMessage(),
         'GCM' => new GCM(),
         // 'http' => new Http(),
         // 'https' => new Https(),

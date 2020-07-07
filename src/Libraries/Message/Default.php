@@ -6,7 +6,7 @@ use JeremyLayson\Push\Libraries\SNSMessageTemplate;
 /**
  * Template for message object for AWS Push Notification
  */
-class Default implements SNSMessageTemplate {
+class DefaultMessage implements SNSMessageTemplate {
 
     public function generateMessage($data)
     {
