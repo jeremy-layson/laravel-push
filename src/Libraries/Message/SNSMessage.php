@@ -18,7 +18,7 @@ class SNSMessage {
 
     protected $data;
 
-    protected $payloadList
+    protected $payloadList;
 
     public function __construct(Array $data, $abortIfInvalid = FALSE)
     {
