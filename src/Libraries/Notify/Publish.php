@@ -69,6 +69,8 @@ class Publish {
 
     public function newPublish($arn, SNSMessage $message, $mode)
     {
+        \Log::info([$arn, $mode, $message->generatePayload()]);
+
         $client = App::make('aws')->createClient('sns');
 
         $payload = [
