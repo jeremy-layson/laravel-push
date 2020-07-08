@@ -75,13 +75,16 @@ class PushObserver
             if ($mode == 'subscribe') {
                 $endpointArn = $subscriber->registerDevice($deviceId, ['id' => $model->id], $platformArn);
                 // create new device
-                $model->awsDevices()->create([
-                    'arn'           => $endpointArn,
-                    'device_id'     => $deviceId,
-                    'platform'      => $platform,
-                    'model'         => request()->aws_push_device_model,
-                    'os_version'    => request()->aws_push_device_os_version,
-                ]);
+                $model->awsDevices()->firstOrCreate([
+                        'device_id'     => $deviceId,
+                    ],
+                    [
+                        'arn'           => $endpointArn,
+                        'device_id'     => $deviceId,
+                        'platform'      => $platform,
+                        'model'         => request()->aws_push_device_model,
+                        'os_version'    => request()->aws_push_device_os_version,
+                    ]);
             } else {
                 // find the device
                 $device = $model->awsDevices()->where('device_id', $deviceId)->first();
