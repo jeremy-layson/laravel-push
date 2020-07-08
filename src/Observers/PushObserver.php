@@ -75,7 +75,7 @@ class PushObserver
             if ($mode == 'subscribe') {
                 $endpointArn = $subscriber->registerDevice($deviceId, ['id' => $model->id], $platformArn);
                 // create new device
-                $model->awsDevices()->firstOrCreate([
+                $model->awsDevices()->updateOrCreate([
                         'device_id'     => $deviceId,
                     ],
                     [
