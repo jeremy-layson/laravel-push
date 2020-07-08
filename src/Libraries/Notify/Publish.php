@@ -67,7 +67,7 @@ class Publish {
         return $result;
     }
 
-    public function newPublish($arn, SNSMessage $message)
+    public function newPublish($arn, SNSMessage $message, $mode)
     {
         $payload = [
             'Message' => $message->generatePayload(),
