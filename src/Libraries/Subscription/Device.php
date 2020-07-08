@@ -30,7 +30,7 @@ class Device {
         $client = App::make('aws')->createClient('sns');
 
         $result = $client->deleteEndpoint([
-            'EndPointArn' => $arn
+            'EndpointArn' => $arn
         ]);
 
         return $result;
