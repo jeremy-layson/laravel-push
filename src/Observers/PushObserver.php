@@ -86,7 +86,7 @@ class PushObserver
                 // find the device
                 $device = $model->awsDevices()->where('device_id', $deviceId)->first();
                 // unsubscribe
-                $subscriber->unsubscribe($device->arn);
+                $subscriber->unregisterDevice($device->arn);
                 // delete
                 $device->delete();
             }
