@@ -85,7 +85,11 @@ class Publish {
             $payload['TargetArn'] = $arn;
         }
 
-        $result = $client->publish($payload);
+        try {
+            $result = $client->publish($payload);
+        } catch (SnsException $e) {
+            \Log::info($e->getMessage());
+        }
 
         return $result;
     }
